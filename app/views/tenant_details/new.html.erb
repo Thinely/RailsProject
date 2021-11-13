@@ -1,0 +1,14 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Add New Tenants</h1>
+</div>
+</div>
+<%= render 'form', tenant_detail: @tenant_detail %>
+
+<%= link_to 'Back', tenant_details_path , class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>
+

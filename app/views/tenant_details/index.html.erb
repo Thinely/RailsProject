@@ -1,0 +1,46 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Tenant Details</h1>
+</div>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+  <th scope="col">Name</th>
+  <th scope="col">Cid</th>
+  <th scope="col">Village</th>
+  <th scope="col">Gewog </th>
+  <th scope="col">Dzongkhag </th>
+  <th scope="col">Total family memeber</th>
+  <th scope="col">Phone no</th>
+  <th scope="col"></th>
+</tr>
+  </thead>
+
+  <tbody>
+  <% @tenant_details.each do |tenant_detail| %>
+    <tr>
+      <td><%= tenant_detail.name %></td>
+      <td><%= tenant_detail.cid %></td>
+      <td><%= tenant_detail.village %></td>
+      <td><%= tenant_detail.gewog %></td>
+      <td><%= tenant_detail.dzongkhag %></td>
+      <td><%= tenant_detail.total_family_memeber %></td>
+      <td><%= tenant_detail.phone_no %></td>
+      <td><%= link_to 'Show', tenant_detail %></td>
+      <td><%= link_to 'Edit', edit_tenant_detail_path(tenant_detail) %></td>
+      <td><%= link_to 'Destroy', tenant_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Tenant', new_tenant_detail_path, class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>
+

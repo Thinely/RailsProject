@@ -1,0 +1,2 @@
+module HouseDetailsHelper
+end

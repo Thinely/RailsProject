@@ -1,0 +1,15 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Pay Your Rent</h1>
+</div>
+</div>
+
+<%= render 'form', payment_detail: @payment_detail %>
+
+<%= link_to 'Back', payment_details_path %>
+<%= render 'admins/index_footer' %>
+

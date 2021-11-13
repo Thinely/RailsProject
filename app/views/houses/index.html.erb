@@ -1,0 +1,46 @@
+<%= render 'admins/index' %>
+<br>
+<div class="card">
+<div class="card-body">
+  <h1>House Details</h1>
+</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Building no</th>
+      <th scope="col">No of rooms</th>
+      <th scope="col">No of tenants</th>
+      <th scope="col">Location</th>
+      <th scope="col">Monthly rent</th>
+      <th scope="col">Space available</th>
+      <th scope="col">Balcony availabe</th>
+      <th scope="col">Parking space</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.building_no %></td>
+        <td><%= house.no_of_rooms %></td>
+        <td><%= house.no_of_tenants %></td>
+        <td><%= house.location %></td>
+        <td><%= house.monthly_rent %></td>
+        <td><%= house.space_available %></td>
+        <td><%= house.balcony_availabe %></td>
+        <td><%= house.parking_space %></td>
+        <td><%= link_to 'Show', house %></td>
+        <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House', new_house_path, class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>

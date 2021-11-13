@@ -1,0 +1,50 @@
+<%= form_with(model: payment_detail) do |form| %>
+  <% if payment_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment_detail.errors.count, "error") %> prohibited this payment_detail from being saved:</h2>
+
+      <ul>
+        <% payment_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :tenant_id %>
+    <%= form.number_field :tenant_id, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :payment_date %>
+    <%= form.datetime_select :payment_date, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :payment_mode %>
+    <%= form.text_field :payment_mode, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :payment_month %>
+    <%= form.text_field :payment_month, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <% if @payment_detail.image.attached? %>
+       <%= image_tag @payment_detail.image, style: "width: 200px; display: block" %>
+    <% end %>
+
+    <%= form.label :Upload_Screenshots %>
+    <%= form.file_field :image, class:"form-control col-6" %>
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit">
+
+<% end %>

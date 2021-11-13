@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @complaint_detail.tenant_id %>
+</p>
+
+<p>
+  <strong>Complaint details:</strong>
+  <%= @complaint_detail.complaint_details %>
+</p>
+
+<p>
+  <strong>Complaint date:</strong>
+  <%= @complaint_detail.complaint_date %>
+</p>
+
+<%= link_to 'Edit', edit_complaint_detail_path(@complaint_detail) %> |
+<%= link_to 'Back', complaint_details_path %>

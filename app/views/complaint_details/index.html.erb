@@ -1,0 +1,36 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Tenant Details</h1>
+</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Complaint details</th>
+      <th scope="col">Complaint date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @complaint_details.each do |complaint_detail| %>
+      <tr>
+        <td><%= complaint_detail.complaint_details %></td>
+        <td><%= complaint_detail.complaint_date %></td>
+        <td><%= link_to 'Show', complaint_detail %></td>
+        <td><%= link_to 'Edit', edit_complaint_detail_path(complaint_detail) %></td>
+        <td><%= link_to 'Destroy', complaint_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Complaint Detail', new_complaint_detail_path, class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>

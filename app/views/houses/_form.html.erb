@@ -1,0 +1,56 @@
+<%= form_with(model: house) do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+        <% house.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :building_no %>
+    <%= form.text_field :building_no, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :no_of_rooms %>
+    <%= form.number_field :no_of_rooms, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :no_of_tenants %>
+    <%= form.number_field :no_of_tenants, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :location %>
+    <%= form.text_field :location, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :monthly_rent %>
+    <%= form.text_field :monthly_rent, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :space_available %>
+    <%= form.number_field :space_available, class:"form-control col-6" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :balcony_availabe %>
+    <%= form.check_box :balcony_availabe, class:"form-check-label" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parking_space %>
+    <%= form.check_box :parking_space, class:"form-check-label" %>
+  </div>
+  <br>
+  <input type="submit" class="btn btn-primary" value="Submit">
+
+<% end %>

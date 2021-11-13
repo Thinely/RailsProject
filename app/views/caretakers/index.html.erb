@@ -1,0 +1,38 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Care Takers</h1>
+</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Contact no</th>
+      <th scope="col">House</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caretakers.each do |caretaker| %>
+      <tr>
+        <td><%= caretaker.name %></td>
+        <td><%= caretaker.contact_no %></td>
+        <td><%= caretaker.house_id %></td>
+        <td><%= link_to 'Show', caretaker %></td>
+        <td><%= link_to 'Edit', edit_caretaker_path(caretaker) %></td>
+        <td><%= link_to 'Destroy', caretaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Caretaker', new_caretaker_path, class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>

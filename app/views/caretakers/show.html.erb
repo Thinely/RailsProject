@@ -1,0 +1,21 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @caretaker.name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @caretaker.contact_no %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @caretaker.house_id %>
+</p>
+
+<%= link_to 'Edit', edit_caretaker_path(@caretaker), class:"btn btn-secondary btn-large" %>   
+<%= render 'admins/index_footer' %>

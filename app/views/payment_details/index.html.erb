@@ -1,0 +1,40 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+<div class="card-body">
+  <h1>Payment Details</h1>
+</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+  <th scope="col">Amount</th>
+  <th scope="col">Payment date</th>
+  <th scope="col">Payment mode</th>
+  <th scope="col">Payment month</th>
+  <th scope="col"></th>
+</tr>
+  </thead>
+
+  <tbody>
+  <% @payment_details.each do |payment_detail| %>
+    <tr>
+      <td><%= payment_detail.amount %></td>
+      <td><%= payment_detail.payment_date %></td>
+      <td><%= payment_detail.payment_mode %></td>
+      <td><%= payment_detail.payment_month %></td>
+      <td><%= link_to 'Show', payment_detail %></td>
+      <td><%= link_to 'Edit', edit_payment_detail_path(payment_detail) %></td>
+      <td><%= link_to 'Destroy', payment_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payment Detail', new_payment_detail_path, class:"btn btn-primary" %>
+<%= render 'admins/index_footer' %>

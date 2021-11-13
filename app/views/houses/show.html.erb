@@ -1,0 +1,49 @@
+<%= render 'admins/index' %>
+
+<p id="notice"><%= notice %></p>
+
+<form>
+<p class="col-sm-4 col-form-label">
+  <strong>Building no:</strong>
+  <%= @house.building_no %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>No of rooms:</strong>
+  <%= @house.no_of_rooms %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>No of tenants:</strong>
+  <%= @house.no_of_tenants %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>Location:</strong>
+  <%= @house.location %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>Monthly rent:</strong>
+  <%= @house.monthly_rent %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>Space available:</strong>
+  <%= @house.space_available %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>Balcony availabe:</strong>
+  <%= @house.balcony_availabe %>
+</p>
+
+<p class="col-sm-4 col-form-label">
+  <strong>Parking space:</strong>
+  <%= @house.parking_space %>
+</p>
+</form>
+
+<%= link_to 'Edit', edit_house_path(@house), class:"btn btn-secondary btn-large" %>
+<%= render 'admins/index_footer' %>
+
