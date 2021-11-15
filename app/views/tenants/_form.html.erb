@@ -1,0 +1,61 @@
+<%= form_with(model: tenant) do |form| %>
+  <% if tenant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+      <ul>
+        <% tenant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cid %>
+    <%= form.number_field :cid, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :village %>
+    <%= form.text_field :village, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :gewog %>
+    <%= form.text_field :gewog, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :dzongkhag %>
+    <%= form.text_field :dzongkhag, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :flat_no %>
+    <%= form.text_field :flat_no, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :total_family_members %>
+    <%= form.number_field :total_family_members, class:"form-control col-6" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :user_id %>
+    <%= form.collection_select(:user_id, @user_options,:id,:email,  { class: 'form-control col-6' }) %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :house_id %>
+    <%= form.collection_select(:house_id, @house_options,:id,:building_no,  { class: 'form-control col-6' }) %>
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit">
+
+<% end %>

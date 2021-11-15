@@ -19,8 +19,8 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-        <td>        <%= user.email %><br/>        </td>
-        <td>        <%= user.admin %><br/>        </td>
+        <td> <%= user.email %><br/> </td>
+        <td> <%= user.admin? ? 'Yes' : 'No' %><br/> </td>
       </tr>
     <% end %>
   </tbody>

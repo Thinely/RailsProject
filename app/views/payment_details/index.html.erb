@@ -20,6 +20,11 @@
   </thead>
 
   <tbody>
+  <% if @payment_details.empty? %>
+   <tr>
+   <td colspan="8">No Details Found</td>
+   </tr>
+  <% end %>
   <% @payment_details.each do |payment_detail| %>
     <tr>
       <td><%= payment_detail.amount %></td>
@@ -35,6 +40,7 @@
 </table>
 
 <br>
-
-<%= link_to 'New Payment Detail', new_payment_detail_path, class:"btn btn-primary" %>
+<% if !current_user.admin? %>
+<%= link_to 'Make a Payment', new_payment_detail_path, class:"btn btn-primary" %>
+<% end %>
 <%= render 'admins/index_footer' %>

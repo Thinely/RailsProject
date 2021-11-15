@@ -22,7 +22,8 @@ class ComplaintDetailsController < ApplicationController
   # POST /complaint_details or /complaint_details.json
   def create
     @complaint_detail = ComplaintDetail.new(complaint_detail_params)
-
+    @user_id = Tenant.find(id)
+    @complaint_detail.tenant_id =  @user_id
     respond_to do |format|
       if @complaint_detail.save
         format.html { redirect_to @complaint_detail, notice: "Complaint detail was successfully created." }

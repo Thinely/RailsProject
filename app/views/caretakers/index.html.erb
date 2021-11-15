@@ -19,11 +19,17 @@
   </thead>
 
   <tbody>
+  <% if @caretakers.empty? %>
+  <tr>
+  <td colspan="8">No Details Found</td>
+  </tr>
+ <% end %>
+
     <% @caretakers.each do |caretaker| %>
       <tr>
         <td><%= caretaker.name %></td>
         <td><%= caretaker.contact_no %></td>
-        <td><%= caretaker.house_id %></td>
+        <td><%= caretaker.house.building_no %></td>
         <td><%= link_to 'Show', caretaker %></td>
         <td><%= link_to 'Edit', edit_caretaker_path(caretaker) %></td>
         <td><%= link_to 'Destroy', caretaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tenants
   resources :houses
   resources :buildings
   resources :complaint_details

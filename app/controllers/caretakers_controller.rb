@@ -4,6 +4,8 @@ class CaretakersController < ApplicationController
   # GET /caretakers or /caretakers.json
   def index
     @caretakers = Caretaker.all
+    # @caretakers = Caretaker.includes(:house).all
+    # @detail = @caretakers.houses
     # @caretakers = Caretaker.joins(:house).where(houses: { id: 1 })
   end
 

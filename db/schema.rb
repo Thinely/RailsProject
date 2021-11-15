@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_130742) do
+ActiveRecord::Schema.define(version: 2021_11_13_182656) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -81,11 +81,12 @@ ActiveRecord::Schema.define(version: 2021_11_12_130742) do
   end
 
   create_table "complaint_details", force: :cascade do |t|
-    t.integer "tenant_id"
     t.string "complaint_details"
     t.datetime "complaint_date"
+    t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_complaint_details_on_tenant_id"
   end
 
   create_table "house_details", force: :cascade do |t|
@@ -115,14 +116,15 @@ ActiveRecord::Schema.define(version: 2021_11_12_130742) do
   end
 
   create_table "payment_details", force: :cascade do |t|
-    t.integer "tenant_id"
     t.float "amount"
     t.datetime "payment_date"
     t.string "payment_mode"
     t.string "payment_month"
     t.string "image"
+    t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_payment_details_on_tenant_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -153,6 +155,22 @@ ActiveRecord::Schema.define(version: 2021_11_12_130742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tenants", force: :cascade do |t|
+    t.string "name"
+    t.integer "cid"
+    t.string "village"
+    t.string "gewog"
+    t.string "dzongkhag"
+    t.string "flat_no"
+    t.integer "total_family_members"
+    t.integer "user_id", null: false
+    t.integer "house_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["house_id"], name: "index_tenants_on_house_id"
+    t.index ["user_id"], name: "index_tenants_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -170,6 +188,10 @@ ActiveRecord::Schema.define(version: 2021_11_12_130742) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "caretakers", "houses"
+  add_foreign_key "complaint_details", "tenants"
+  add_foreign_key "payment_details", "tenants"
   add_foreign_key "posts", "users"
   add_foreign_key "tenant_details", "users"
+  add_foreign_key "tenants", "houses"
+  add_foreign_key "tenants", "users"
 end
